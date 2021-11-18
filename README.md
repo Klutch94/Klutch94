@@ -6,11 +6,12 @@
 **************************************Simples investigations and PROC univariate**************************************
 
 *Printing out the distribution of a specific variable name within a certain class.
+```
 proc means data=alldat maxdec=2 nolabels missing n nmiss mean std;
     var age;
     class exposure;
 run;
-
+```
 *Summaries a specific column in a data-sheet.
 proc summary data=alldat;
     var nbirths;
