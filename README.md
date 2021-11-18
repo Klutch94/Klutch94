@@ -158,7 +158,9 @@ proc sgplot data=&dataset. pctlevel=group;
     keylegend "a";
 run;
 ```
+
 **************************************Proc SQL**************************************
+
 * summing/grouping over all age groups ;
 ```
 proc sql noprint;
@@ -210,10 +212,10 @@ proc mi data=alldat nimpute=0;
 run;
 ```
 **************************************Transposing**************************************
+* prefix= and id are optional, cause the columns to have names ;
 ```
 proc sort data=pop; by agegrp gender; run;
 
-* prefix= and id are optional, cause the columns to have names ;
 proc transpose data=pop out=lexis_pop prefix=period_;
     id period;
     var population;
