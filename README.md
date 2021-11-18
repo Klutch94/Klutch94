@@ -2,7 +2,6 @@
 - This is my page where i store Rstudio and SAS code to help my work become easier, all of these code-snippets are either collected from myself or other examples all over the internet.
 
 
-----------------------------------------------------------------------RSTUDIO CODE----------------------------------------------------------------------
 
 
 <!---
