@@ -41,6 +41,7 @@ TITLE3 "Plot Statement added for side by side Box Plot";
  RUN;
  ```
  *Descreptive statistics of specific variabel within data-set
+ /*Other Selections: Moments, TestsforLocation, Quantiles, ExtremeObs 
  ```
 LIBNAME Mylib 'C:\Users\GVSUG\Desktop\Joseph Guido';
 ODS SELECT BASICMEASURES;
@@ -50,7 +51,6 @@ TITLE2 "Basic Measures selected";
  VAR Chol1;
 RUN;
 ```
-/*Other Selections: Moments, TestsforLocation, Quantiles, ExtremeObs 
 
 *Is there a significant difference in the variable Cholesterol between site 1 and site 2?
 ```
