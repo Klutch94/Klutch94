@@ -94,7 +94,7 @@ proc print data=alldat;
 run;
 ```
 * print the first 20 observations 
-* ```
+```
 proc print data=alldat(obs=20);
 run;
 ```
