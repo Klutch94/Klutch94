@@ -1,4 +1,65 @@
 -------------------------------------------------------------------------SAS CODE-------------------------------------------------------------------------
+**************************************Data steps**************************************
+*Set new data-set
+```
+data work.alldat;
+    set work.mydata;
+run;
+```
+*Set new dataset if sex = male and another set if female
+```
+data male female;
+    set alldat;
+    if sex=1 then output male;
+    if sex=2 then output female;
+run;
+```
+* appending, concatenating 
+```
+data alldat;
+    set mort90 mort91 mort92 mort93;
+run;
+```
+* merging 
+```
+data alldat;
+    merge inci90 mort90; * the datasets to be merged ;
+    by year agegrp gender; * the columns that should be used for merging ;
+run;
+```
+
+*Changing the values of variables.
+```
+proc format; 
+    value genderf
+        1="male"
+        2="female";
+    value parityf
+        1="no children"
+        2="1-3 children"
+        3="4 or more children";
+run;
+
+data alldat;
+    set alldat;
+
+    agegrp=min(int((age-30)/5),4);
+    bmi=weight/(height**2);
+
+    parity=.;
+         if npar=0          then parity=1;
+    else if npar in (1,2,3) then parity=2;
+    else if npar > 3        then parity=3;
+
+    label  bmi="Body-Mass-Index";
+
+    format gender genderf.
+           parity parityf.;
+
+    keep   id gender agegrp bmi parity;
+run;
+```
+
 
 **************************************Simples investigations and PROC univariate**************************************
 
